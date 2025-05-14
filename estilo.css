@@ -1,0 +1,439 @@
+/* ===== VARIABLES Y ESTILOS BASE ===== */
+:root {
+  --pink: #FFDFE0;
+  --dark-pink: #FF91A1;
+  --light-pink: #FDEEF3;
+  --mint: #E0FEFE;
+  --dark-pink2: #FFBFD1;
+  --text: #68464C;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Pixelify Sans", sans-serif;
+  background-color: #FFF5F5;
+  color: var(--text);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ===== BARRA DE TÍTULO ===== */
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-pink);
+  padding: 12px 15px;
+  -webkit-app-region: drag;
+  box-shadow: var(--shadow);
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.window-controls {
+  display: flex;
+  gap: 12px;
+  -webkit-app-region: no-drag;
+}
+
+.window-controls img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0.8;
+}
+
+.window-controls img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.workspace {
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: calc(100vh - 48px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== PANTALLA DE BIENVENIDA ===== */
+.welcome-image, .finish-image {
+  width: min(200px, 80%);
+  margin-top: 10px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== PANTALLA DEL PLANNER ===== */
+.planner-container {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  width: min(90vw, 800px);
+  height: min(80vh, 600px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 2px solid white;
+}
+
+/* Encabezado con fecha y progreso */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  background: var(--light-pink);
+  border-bottom: 2px solid var(--pink);
+}
+
+.progress-section {
+  flex: 1;
+  background: var(--dark-pink);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.progress-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid var(--pink);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--dark-pink2), var(--light-pink));
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.3) 0%, 
+    rgba(255,255,255,0.5) 50%, 
+    rgba(255,255,255,0.3) 100%);
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+#progress-text {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.date-box {
+  background: var(--dark-pink);
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 100px;
+  margin-left: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border: 1px solid var(--pink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.date-box .day {
+  font-size: 0.8rem;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.date-box .number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1;
+  margin: 3px 0;
+}
+
+.date-box .month {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: bold;
+}
+
+/* Área de tareas */
+.scrollable-tasks {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.task-input {
+  display: flex;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+#new-task {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid var(--pink);
+  border-radius: 12px;
+  font-family: "Pixelify Sans";
+  font-size: 1rem;
+  outline: none;
+  background: white;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#new-task:focus {
+  border-color: var(--dark-pink);
+  box-shadow: 0 0 0 3px rgba(255, 145, 161, 0.2);
+}
+
+.add-button {
+  background: var(--dark-pink);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-button:hover {
+  background: var(--dark-pink2);
+  transform: scale(1.05);
+}
+
+#task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 12px 15px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 191, 209, 0.3);
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.task-item input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--pink);
+  border-radius: 6px;
+  margin-right: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+}
+
+.task-item input[type="checkbox"]:checked {
+  background-color: var(--dark-pink);
+  border-color: var(--dark-pink);
+}
+
+.task-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1rem;
+  transition: var(--transition);
+  padding: 2px 0;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.delete-task {
+  background: none;
+  border: none;
+  color: var(--dark-pink);
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+  opacity: 0.7;
+}
+
+.delete-task:hover {
+  background: rgba(255, 145, 161, 0.1);
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+
+
+/* ===== PANTALLA DE FINALIZACIÓN ===== */
+#final-progress {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+#progress-percentage {
+  color: var(--dark-pink);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* ===== BOTONES ===== */
+.button {
+  background: var(--dark-pink);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  font-family: "Pixelify Sans";
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+
+
+@keyframes shine {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 223, 224, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-pink);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+ 
+  
+  .planner-container {
+    height: 85vh;
+  }
+  
+  
+}

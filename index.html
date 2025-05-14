@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pixelify Sans" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Barra de título personalizada -->
+    <div class="title-bar" id="title-bar">
+        <div class="title">My Daily Planner</div>
+        <div class="window-controls">
+            <img src="assets/min_icon.png" alt="Minimizar" id="minimize-button">
+            <img src="assets/close_icon.png" alt="Cerrar" id="close-button">
+        </div>
+    </div>
+
+    <!-- Panel principal -->
+
+    <div class="workspace">
+        <!-- Pantalla de Bienvenida -->
+        <div id="welcome-screen" class="screen">
+            <img src="assets/welcome.png" alt="Welcome" class="welcome-image">
+            <button id="start-button" class="button">Start</button>
+        </div>
+
+        <!-- Pantalla del Planner (con scroll) -->
+        <div id="planner-screen" class="screen hidden">
+            <div class="planner-container">
+                <!-- Encabezado con fecha y progreso -->
+                <div class="header-section">
+                    <div class="progress-section">
+                        <h2><i class="fas fa-star"></i> Progreso del Día</h2>
+                        <div class="progress-bar">
+                            <div id="progress" class="progress-fill"></div>
+                        </div>
+                        <p id="progress-text">0% completado</p>
+                    </div>
+                    <div id="current-date" class="date-box"></div>
+                </div>
+
+                <!-- Lista de tareas con scroll -->
+                <div class="scrollable-tasks">
+                    <div class="task-input">
+                        <input type="text" id="new-task" placeholder="Añade una tarea...">
+                        <button id="add-task" class="add-button"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <ul id="task-list"></ul>
+                </div>
+
+            </div>
+            <button id="finish-button" class="button">Finalizar</button>
+
+        </div>
+
+        <!-- Pantalla de Finalización -->
+        <div id="finish-screen" class="screen hidden">
+            <img src="assets/finish.png" alt="Finish" class="finish-image">
+            <p id="final-progress">Tu progreso fue del <span id="progress-percentage">0%</span></p>
+            <button id="return-button" class="button">Regresar</button>
+        </div>
+    </div>
+
+
+
+    <script src="planner.js"></script>
+</body>
+
+</html>
