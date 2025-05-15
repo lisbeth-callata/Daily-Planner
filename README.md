@@ -2,7 +2,7 @@
 
 Es un proyecto personal que fue desarrollado en Electron.js para organizar tareas diarias.
 
-![Image](https://github.com/user-attachments/assets/585ba8f8-e374-49da-9249-25c1555495d0)
+![Image](https://github.com/user-attachments/assets/ea007e4c-385b-4624-b270-b2cf51f68915)
 
 ## ✨ Características
 
