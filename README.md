@@ -22,7 +22,7 @@ Es un proyecto personal que fue desarrollado en Electron.js para organizar tarea
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/daily-planner-kawaii.git
+   git clone https://github.com/lisbeth-callata/Daily-Planner.git
    
 2. Instala las dependencias:
    ```bash
