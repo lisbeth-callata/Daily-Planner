@@ -2,24 +2,21 @@
 
 Es un proyecto personal que fue desarrollado en Electron.js para organizar tareas diarias.
 
-![Captura de pantalla](assets/screenshot.png) <!-- Reemplaza con tu propia captura -->
+![Image](https://github.com/user-attachments/assets/8d449db1-0bbd-4f19-9c19-a5e73012d31d)
 
 ## ✨ Características
 
-- 🎀 Interfaz kawaii con colores suaves y diseño adorable
-- 📝 Añade, completa y elimina tareas fácilmente
-- 📊 Barra de progreso visual con animación
-- 📅 Fecha actual automática
-- 🖥️ Diseño de ventana personalizada (minimizar/cerrar)
-- 🌈 Efectos visuales y animaciones suaves
-- 🚀 Pantallas de bienvenida y finalización
+- 🎀 Interfaz con colores suaves.
+- 📝 Añade, completa y elimina tareas fácilmente.
+- 📊 Barra de progreso visual con animación.
+- 📅 Fecha actual automática.
+- 🖥️ Diseño de ventana personalizada.
 
 ## 🛠️ Tecnologías utilizadas
 
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Electron**: Para empaquetar como aplicación de escritorio
 - **Font Awesome**: Iconos
-- **Google Fonts**: Fuente "Pixelify Sans"
 
 ## 📦 Instalación
 
